@@ -1,0 +1,6 @@
+-cert-cpp from-file
+-autosar-cpp14 from-file
+-cwe from-file
+-checkers-selection-file C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2023a\HMC_Secure_Coding_CPP_CERT_CPP_R2023a.xml
+-checkers BAD_LOCK,BLOCKING_WHILE_LOCKED,DESTROY_LOCKED,UNSAFE_STR_TO_NUMERIC
+-code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2023a\critical_data_member.xml

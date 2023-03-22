@@ -1,0 +1,14 @@
+{
+	"justifications": [
+		{
+		"family": "Defect",
+		"acronym": "INT_ZERO_DIV",
+		"comment": "This is my justification for division"
+		},
+		{
+		"family": "Defect",
+		"acronym": "INT_ZERO_DIV",
+		"comment": "Alternative justification for division"
+		}
+	]
+}
