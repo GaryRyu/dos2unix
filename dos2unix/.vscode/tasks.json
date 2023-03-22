@@ -5,7 +5,7 @@
     "tasks": [
         {
             "label": "Build All for dos2unix",
-            "type": "process",
+            "type": "shell",
             "command": "C:/msys64/usr/bin/make.exe",
             "args": [
                 "-f",
@@ -16,7 +16,7 @@
         },
         {
             "label": "Clean All for dos2unix",
-            "type": "process",
+            "type": "shell",
             "command": "C:/msys64/usr/bin/make.exe",
             "args": [
                 "-f",

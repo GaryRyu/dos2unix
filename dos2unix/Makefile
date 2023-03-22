@@ -46,7 +46,7 @@ MAC2UNIX	= mac2unix
 UNIX2MAC	= unix2mac
 
 # Native Language Support (NLS)
-ENABLE_NLS	= 1
+#ENABLE_NLS	= 1
 # Large File Support (LFS)
 LFS             = 1
 DEBUG = 0

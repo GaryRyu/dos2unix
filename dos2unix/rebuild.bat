@@ -1,2 +1,2 @@
-make -f mingw64.mak clean
-make -f mingw64.mak dos2unix
+make clean
+make dos2unix.exe
