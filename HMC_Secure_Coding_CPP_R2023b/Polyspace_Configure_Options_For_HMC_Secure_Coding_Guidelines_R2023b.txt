@@ -1,0 +1,1 @@
+-allow-build-error -allow-overwrite -extra-project-options "-checkers-selection-file C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2023b\HMC_Secure_Coding_CPP_CWE_CERT_CPP_R2023b.xml -cert-cpp from-file -cwe from-file -checkers none -code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2023b\critical_data_member.xml"
