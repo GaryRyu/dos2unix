@@ -1,0 +1,82 @@
+.include "models/interfaces/leakage.dl"
+.include "cpp/cpp.dl"
+
+//No need to add Leakage.Basic.specificationFile() in R2024a
+//Leakage.Basic.specificationFile(__FILE__).
+
+//Impossible to customize a message for CWE-319 by Leakage.Basic.defectMessage() in R2024a
+//Leakage.Basic.defectMessage("Unsafe functions transmit sensitive data.").
+
+////////////////////////////////////////////////////////
+// Example #1 - Sensitive data returned from a function 
+////////////////////////////////////////////////////////
+Leakage.Basic.sensitiveFunctionOutputs("getSecret", $OutReturnValue(), "Return value of get Secret is a sensitive data.").
+
+Leakage.Basic.leaking("transmit",$InParameterValue(0),"transmit() can leak data.").
+
+///////////////////////////////////////////////////////
+// Example #2 - Sensitive data dereferenced by pointer 
+///////////////////////////////////////////////////////
+Leakage.Basic.sensitiveFunctionOutputs("getSecretByPointer", $OutParameterDeref(0), "First parameter of getSecretByPointer points to a sensitive data.").
+
+Leakage.Basic.leaking("sendData",$InParameterDeref(0),"sendData() can leak data.").
+
+/////////////////////////////////////////////////////////////
+// Example #3 - Transmit Sensitive variables by sanitization
+/////////////////////////////////////////////////////////////
+Leakage.Basic.sensitiveFunctionOutputs("getSecret", $OutReturnValue(), "Return value of getSecret is a sensitive data.").
+Leakage.Basic.sensitiveFunctionOutputs("getSecretByPointer", $OutParameterDeref(0), "First parameter of getSecretByPointer points to a sensitive data.").
+
+Leakage.Basic.leaking("transmit",$InParameterValue(0),"transmit() can leak data.").
+Leakage.Basic.leaking("sendData",$InParameterDeref(0),"sendData() can leak data.").
+
+Leakage.Basic.sanitizing("encryptPointer",$OutParameterDeref(0)).
+
+//////////////////////////////////////////
+// Example #4 - Sensitive assigned memory 
+//////////////////////////////////////////
+Alias.Basic.allocates("allocMemory", $OutReturnValue()).
+Alias.Basic.allocates("allocInfo", $OutParameterDeref(0)).
+
+Leakage.Basic.sensitiveFunctionOutputs("getSecretByPointerParam2", $OutParameterDeref(1), "Second parameter of getSecretByPointer points to a sensitive data.").
+
+Leakage.Basic.leaking("sendDataCh",$InParameterDeref(1),"sendDataCh() can leak data.").
+
+Leakage.Basic.sanitizing("encryptPointerByKey",$OutParameterDeref(1)).
+
+//////////////////////////////////////////////
+// Example #5 - Sensitive data variables
+//////////////////////////////////////////////
+Leakage.Basic.sensitiveVariableValue("gVelocity", "gVelocity holds sensitive data.").
+Leakage.Basic.sensitiveVariableValue("velocity", "velocity holds a sensitive data.").
+Leakage.Basic.sensitiveVariableValue("gPrivateKeyArray", "gPrivateKeyArray holds a sensitive key.").
+Leakage.Basic.sensitiveVariableDeref("gPrivateKeyPtr", "gPrivateKeyPtr points to a sensitive key.").
+Leakage.Basic.sensitiveVariableDeref("privateKey", "privateKey points to a sensitive key.").
+
+//Leakage.Basic.useDefaultLeaking() is not necessary anymore. It is enabled by default in R2024a.
+//Leakage.Basic.useDefaultLeaking().
+
+Leakage.Basic.leaking("sendDataLong",$InParameterDeref(0),"sendDataLong() can leak data.").
+Leakage.Basic.leaking("sendMessage",$InParameterDeref(1),"sendMessage() can leak data.").
+
+Leakage.Basic.sanitizing("encryptLong",$OutParameterDeref(0)).
+Leakage.Basic.sanitizing("encryptData",$OutParameterDeref(0)).
+
+////////////////////////////////////////////////////////////////////////
+// Example #6  - Set function/variable name by using Regular Expression
+////////////////////////////////////////////////////////////////////////
+Leakage.Basic.sensitiveVariableDeref(name, "Pointers staring prvKey points to a sensitive data.") :-
+    Cpp.Function.name(_, name), match("prvKey[A-Za-z0-9_]*", name).
+Leakage.Basic.sensitiveFunctionOutputs(name, $OutReturnValue(), "The function returns a sensitive data.") :-
+    Cpp.Function.name(_, name), match("recv[A-Za-z0-9_]+", name).
+Leakage.Basic.sensitiveFunctionOutputs(name, $OutParameterDeref(0), msg) :-
+    Cpp.Function.name(_, name), match("getCH[0-9]+PrvKey", name),
+    msg = cat("First parameter of ", name, " points to sensitive data.").
+
+Alias.Basic.allocates("allocKey", $OutReturnValue()).
+
+Leakage.Basic.leaking(name, $InParameterValue(0),"sendXXXXXX() can leak data.") :-
+    Cpp.Function.name(_, name), match("send[A-Za-z0-9_]*", name).
+Leakage.Basic.leaking(name, $InParameterDeref(0), msg) :-
+    Cpp.Function.name(_, name), match("publish[A-Za-z0-9_]*", name),
+    msg = cat("The first parameter pointer of ", name, " can leak data.").
