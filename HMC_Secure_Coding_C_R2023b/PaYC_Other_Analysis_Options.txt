@@ -1,2 +1,1 @@
 -code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2023b\forbidden_debug_func.xml
--code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2023b\custom_definition_cwe_319.dl

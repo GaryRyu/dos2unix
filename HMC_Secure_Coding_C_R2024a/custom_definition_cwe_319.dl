@@ -1,3 +1,4 @@
+.include "models/interfaces/alias.dl"
 .include "models/interfaces/leakage.dl"
 .include "cpp/cpp.dl"
 

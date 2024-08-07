@@ -129,16 +129,6 @@
       <!-- ADVANCED TARGET OPTIONS -->
     </optionset>
     <result>
-      <file path="file:/C:/Workspace/Polyspace/dos2unix/HMC_Secure_Coding_C_R2021b/Module_1/BF_Result" isactive="true"/>
     </result>
   </module>
-  <target name="Infineon-&gt;TriCore" language="C">
-    <option flagname="-align">32</option>
-    <option flagname="-default-sign-of-char">signed</option>
-    <option flagname="-double-is-64bits">true</option>
-    <option flagname="-int-is-32bits">true</option>
-    <option flagname="-little-endian">Little</option>
-    <option flagname="-long-long-is-64bits">true</option>
-    <option flagname="-pointer-is-32bits">true</option>
-  </target>
 </polyspace_project>
