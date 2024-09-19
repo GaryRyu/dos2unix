@@ -1,0 +1,5 @@
+-cert-cpp from-file
+-cwe from-file
+-checkers-selection-file C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2024b\HMC_Secure_Coding_CPP_CWE_CERT_CPP_R2024b.xml
+-checkers none
+-code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_CPP_R2024b\critical_data_member.xml
