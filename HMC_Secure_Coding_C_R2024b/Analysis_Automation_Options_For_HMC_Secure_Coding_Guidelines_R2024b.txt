@@ -1,0 +1,6 @@
+-checkers-selection-file C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2024b\HMC_Secure_Coding_C_CWE_CERT_C_R2024b.xml
+-cert-c from-file
+-cwe from-file
+-checkers CRYPTO_CIPHER_CONSTANT_KEY,CRYPTO_CIPHER_NO_KEY,CRYPTO_PKEY_NO_PEER,CRYPTO_PKEY_NO_PRIVATE_KEY,CRYPTO_PKEY_NO_PUBLIC_KEY,CRYPTO_RSA_LOW_EXPONENT,OBSOLETE_STD_FUNC
+-code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2024b\forbidden_debug_func.xml
+-code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2024b\custom_definition_cwe_319.dl
