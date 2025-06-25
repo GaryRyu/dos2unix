@@ -1,2 +1,2 @@
 -code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2025a\forbidden_debug_func.xml
--code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2025a\OldGUI\R2025a\C-CPP\custom_definition_cwe_319.dl
+-code-behavior-specifications C:\Workspace\Polyspace\HMC_Secure_Coding_C_R2025a\custom_definition_cwe_319.dl
